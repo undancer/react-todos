@@ -2,17 +2,19 @@ import React from "react";
 import {FILTER_ALL} from "./filter/fitler";
 import {addToList, getAll, updateStatus} from "./todo/todo";
 import {objectWithOnly, wrapChildrenWith} from "./common";
+import {MODE_CREATE} from "./mode";
 
 class StateProvider extends React.Component {
 
     constructor() {
         super();
         this.state = {
+            mode: MODE_CREATE,
             filter: FILTER_ALL,
             items: getAll()
         }
     }
-    
+
     addNew = (text) => {
         let updatedList = addToList(this.state.items, {text, completed: false});
         this.setState({

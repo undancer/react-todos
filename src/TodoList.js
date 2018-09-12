@@ -6,7 +6,7 @@ import FilteredList from "./FilteredList";
 
 const TodoList = (props) => {
     const {title} = props;
-    const {items, filter} = props.data;
+    const {items, filter, mode} = props.data;
     const {addNew, changeFilter, changeStatus} = props.actions;
     const count = items.length;
     const filteredItems = applyFilter(items, filter);
@@ -14,10 +14,10 @@ const TodoList = (props) => {
         <div className="todolist">
             <Header
                 title={title}
-                addNew={addNew}
+                {...{addNew, mode}}
             />
             <FilteredList items={filteredItems} changeStatus={changeStatus}/>
-            <Footer count={count} filter={filter} changeFilter={changeFilter}/>
+            <Footer count={count} filter={filter} changeFilter={changeFilter} mode={mode}/>
         </div>
     );
 };

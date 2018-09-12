@@ -1,14 +1,12 @@
 import React from "react";
-import InputBox from "./InputBox";
+import InputWrapper from "./InputWrapper";
 
 const Header = (props) => {
-    const {title, addNew} = props;
+    const {title} = props;
     return (
         <header>
             <h1>{title}</h1>
-            <InputBox
-                addNew={addNew}
-            />
+            <InputWrapper {...props}/>
         </header>
     );
 };
