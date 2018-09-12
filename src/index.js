@@ -7,6 +7,7 @@ import 'jquery'
 import 'popper.js'
 import 'bootstrap'
 import './index.css'
+import './config/fortawesome'
 
 ReactDOM.render(
     (
