@@ -26,12 +26,27 @@ class App extends React.Component {
         }
     }
 
+    addNew = (text) => {
+        let item = {
+            id: this.state.items.length + 1,
+            text: text
+        };
+        let updatedList = this.state.items.concat([item]);
+        this.setState({
+            items: updatedList
+        });
+    };
+
     render() {
         let title = 'Things to do';
         return (
             <div className="container">
                 <div className="row">
-                    <TodoList title={title} items={this.state.items}/>
+                    <TodoList
+                        title={title}
+                        addNew={this.addNew}
+                        items={this.state.items}
+                    />
                 </div>
             </div>
         );

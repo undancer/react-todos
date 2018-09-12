@@ -4,11 +4,14 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const TodoList = (props) => {
-    const {title, items} = props;
+    const {title, items, addNew} = props;
     const count = items.length;
     return (
         <div className="todolist">
-            <Header title={title}/>
+            <Header
+                title={title}
+                addNew={addNew}
+            />
             <ul className="list-unstyled">
                 {
                     items.map((item) => (
