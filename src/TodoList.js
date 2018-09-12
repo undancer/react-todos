@@ -2,6 +2,7 @@ import React from "react";
 import TodoItem from "./TodoItem";
 import Header from "./Header";
 import Footer from "./Footer";
+import applyFilter from "./filter";
 
 const TodoList = (props) => {
     const {title, items, addNew, changeFilter, filter} = props;
@@ -23,17 +24,6 @@ const TodoList = (props) => {
             <Footer count={count} filter={filter} changeFilter={changeFilter}/>
         </div>
     );
-};
-
-const applyFilter = (list, filter) => {
-    switch (filter) {
-        case 'completed':
-            return list.filter(item => item.completed === true);
-        case 'active':
-            return list.filter(item => item.completed === false);
-        default:
-            return list;
-    }
 };
 
 export default TodoList;
