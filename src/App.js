@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from "./TodoList";
 import {FILTER_ACTIVE} from "./filter/fitler";
+import {createNew, getAll} from "./todo/todo";
 
 class App extends React.Component {
 
@@ -8,31 +9,12 @@ class App extends React.Component {
         super(props);
         this.state = {
             filter: FILTER_ACTIVE,
-            items: [
-                {
-                    id: 1,
-                    text: 'Learn Javascript',
-                    completed: false
-                },
-                {
-                    id: 2,
-                    text: 'Learn React',
-                    completed: false
-                },
-                {
-                    id: 3,
-                    text: 'Build a React App',
-                    completed: true
-                }
-            ]
+            items: getAll()
         }
     }
 
     addNew = (text) => {
-        let item = {
-            id: this.state.items.length + 1,
-            text: text
-        };
+        let item = createNew(text);
         let updatedList = this.state.items.concat([item]);
         this.setState({
             items: updatedList
