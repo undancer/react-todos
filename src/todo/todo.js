@@ -18,12 +18,15 @@ const getAll = () => {
     ]
 };
 
-const createNew = (text) => {
-    let item = {
-        id: this.state.items.length + 1,
-        text: text
-    };
-    return item;
+let todoCounter = 1;
+const getNextId = () => {
+    return getAll().length + todoCounter++;
 };
 
-export {getAll, createNew};
+const addToList = (list, data) => {
+    let item = Object.assign({id: getNextId()}, data);
+    return list.concat([item]);
+
+};
+
+export {getAll, addToList};

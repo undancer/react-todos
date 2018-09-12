@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from "./TodoList";
 import {FILTER_ACTIVE} from "./filter/fitler";
-import {createNew, getAll} from "./todo/todo";
+import {addToList, getAll} from "./todo/todo";
 
 class App extends React.Component {
 
@@ -14,8 +14,7 @@ class App extends React.Component {
     }
 
     addNew = (text) => {
-        let item = createNew(text);
-        let updatedList = this.state.items.concat([item]);
+        let updatedList = addToList(this.state.items, {text, completed: false});
         this.setState({
             items: updatedList
         });
