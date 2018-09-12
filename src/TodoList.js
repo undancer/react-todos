@@ -1,4 +1,5 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
     const {title, items} = props;
@@ -8,15 +9,8 @@ const TodoList = (props) => {
             <ul className="list-unstyled">
                 {
                     items.map((item) => (
-                            <li key={item.id} className="ui-state-default">
-                                <div className="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="" checked={item.completed}/>{item.text}
-                                    </label>
-                                </div>
-                            </li>
-                        )
-                    )
+                        <TodoItem item={item}/>
+                    ))
                 }
             </ul>
         </div>
