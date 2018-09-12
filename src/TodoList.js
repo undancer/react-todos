@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {applyFilter, search} from "./filter/fitler";
 import FilteredList from "./FilteredList";
+import Info from "./Info";
 
 const TodoList = (props) => {
     const {title} = props;
@@ -19,6 +20,9 @@ const TodoList = (props) => {
             <FilteredList items={filteredItems} changeStatus={changeStatus}/>
             <Footer
                 {...{count, filter, mode, changeFilter, changeMode}}
+            />
+            <Info
+                {...{mode}}
             />
         </div>
     );
