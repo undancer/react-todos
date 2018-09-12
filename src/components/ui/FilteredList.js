@@ -17,6 +17,7 @@ const FilteredList = (props) => {
             {
                 items.map((item) => (
                     <TodoItem
+                        key={item.id}
                         id={item.id}
                         data={item.text}
                         completed={item.completed}

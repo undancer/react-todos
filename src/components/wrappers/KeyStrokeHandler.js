@@ -1,6 +1,7 @@
 import {wrapChildrenWith} from "../../utils/common";
 import React from 'react';
 import {getNextModeByKey} from "../../utils/mode";
+import {Col} from "reactstrap";
 
 class KeyStrokeHandler extends React.Component {
 
@@ -22,7 +23,11 @@ class KeyStrokeHandler extends React.Component {
     };
 
     render() {
-        return <div>{wrapChildrenWith(this.props.children, this.props)}</div>;
+        return (
+            <Col>
+                {wrapChildrenWith(this.props.children, this.props)}
+            </Col>
+        );
     }
 }
 

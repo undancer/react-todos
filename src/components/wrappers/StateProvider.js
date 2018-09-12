@@ -3,6 +3,7 @@ import {FILTER_ALL} from "../../utils/fitler";
 import {addToList, getAll, updateStatus} from "../../utils/todo";
 import {objectWithOnly, wrapChildrenWith} from "../../utils/common";
 import {MODE_CREATE, MODE_NONE} from "../../utils/mode";
+import {Row} from "reactstrap";
 
 class StateProvider extends React.Component {
 
@@ -45,7 +46,11 @@ class StateProvider extends React.Component {
             data: this.state,
             actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'changeMode', 'setSearchQuery'])
         });
-        return <div>{children}</div>;
+        return (
+            <Row>
+                {children}
+            </Row>
+        );
     }
 
 }
