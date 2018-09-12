@@ -14,13 +14,21 @@ const TodoList = (props) => {
                 title={title}
                 addNew={addNew}
             />
-            <ul className="list-unstyled">
-                {
-                    filteredList.map((item) => (
-                        <TodoItem item={item}/>
-                    ))
-                }
-            </ul>
+            {
+                filteredList.length > 0 ?
+                    (
+                        <ul className="list-unstyled">
+                            {
+                                filteredList.map((item) => (
+                                    <TodoItem item={item}/>
+                                ))
+                            }
+                        </ul>
+                    ) : (
+                        <p className="alert alert-info">There are no items.</p>
+                    )
+            }
+
             <Footer count={count} filter={filter} changeFilter={changeFilter}/>
         </div>
     );

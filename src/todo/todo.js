@@ -13,7 +13,7 @@ const getAll = () => {
         {
             id: 3,
             text: 'Build a React App',
-            completed: true
+            completed: false
         }
     ]
 };
