@@ -1,5 +1,5 @@
 import React from 'react';
-import {getOptions} from "../utils/fitler";
+import {getOptions} from "../../utils/fitler";
 
 const Filter = (props) => {
     const {filter, changeFilter} = props;

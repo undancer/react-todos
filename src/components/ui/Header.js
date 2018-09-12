@@ -1,5 +1,5 @@
 import React from "react";
-import InputWrapper from "./InputWrapper";
+import InputWrapper from "../wrappers/InputWrapper";
 
 const Header = (props) => {
     const {title} = props;

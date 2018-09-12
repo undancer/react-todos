@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import {applyFilter, search} from "../utils/fitler";
+import {applyFilter, search} from "../../utils/fitler";
 import FilteredList from "./FilteredList";
 import Info from "./Info";
 

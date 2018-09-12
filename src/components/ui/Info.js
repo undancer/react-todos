@@ -1,5 +1,5 @@
 import React from 'react';
-import {MODE_NONE} from "../utils/mode";
+import {MODE_NONE} from "../../utils/mode";
 
 const Info = (props) => {
     const {mode} = props;
