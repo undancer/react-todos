@@ -1,9 +1,29 @@
 import React from "react";
 
-const InputBox = (props) => {
-    return (
-        <input type="text" className="form-control add-todo"
-               placeholder="Add New"/>
-    );
-};
+class InputBox extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: props.value || ''
+        };
+    }
+
+    handleChange = (event) => {
+        this.setState({value: event.target.value});
+    };
+
+    render() {
+        return (
+            <input
+                type="text"
+                className="form-control add-todo"
+                value={this.state.value}
+                onChange={this.handleChange}
+                placeholder="Add New"
+            />
+        );
+    }
+}
+
 export default InputBox;
