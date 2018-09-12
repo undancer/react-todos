@@ -1,4 +1,4 @@
-import {MODE_CREATE, MODE_NONE, MODE_SEARCH} from "./mode";
+import {MODE_CREATE, MODE_NONE, MODE_SEARCH} from "../utils/mode";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
 

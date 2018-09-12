@@ -1,8 +1,8 @@
 import React from "react";
-import {FILTER_ALL} from "./filter/fitler";
-import {addToList, getAll, updateStatus} from "./todo/todo";
-import {objectWithOnly, wrapChildrenWith} from "./common";
-import {MODE_CREATE, MODE_NONE} from "./mode";
+import {FILTER_ALL} from "../utils/fitler";
+import {addToList, getAll, updateStatus} from "../utils/todo";
+import {objectWithOnly, wrapChildrenWith} from "../utils/common";
+import {MODE_CREATE, MODE_NONE} from "../utils/mode";
 
 class StateProvider extends React.Component {
 

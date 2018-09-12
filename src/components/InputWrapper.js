@@ -1,5 +1,5 @@
 import React from 'react';
-import {MODE_CREATE, MODE_SEARCH} from "./mode";
+import {MODE_CREATE, MODE_SEARCH} from "../utils/mode";
 import InputBox from "./InputBox";
 import SearchBox from "./SearchBox";
 

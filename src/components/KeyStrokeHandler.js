@@ -1,6 +1,6 @@
-import {wrapChildrenWith} from "./common";
+import {wrapChildrenWith} from "../utils/common";
 import React from 'react';
-import {getNextModeByKey} from "./mode";
+import {getNextModeByKey} from "../utils/mode";
 
 class KeyStrokeHandler extends React.Component {
 
