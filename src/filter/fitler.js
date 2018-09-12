@@ -1,3 +1,5 @@
+import {stringInclues} from "../common";
+
 const FILTER_ALL = 'all';
 const FILTER_ACTIVE = 'active';
 const FILTER_COMPLETED = 'completed';
@@ -13,6 +15,12 @@ const applyFilter = (list, filter) => {
     }
 };
 
+const search = (list, query) => {
+    let q = query.trim().toLowerCase();
+    return list.filter(({text}) => stringInclues(text.toLowerCase(), q));
+}
+
+
 const getOptions = () => {
     return {
         [FILTER_ALL]: 'All',
@@ -21,4 +29,4 @@ const getOptions = () => {
     };
 };
 
-export {FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED, applyFilter, getOptions};
+export {FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED, applyFilter, search, getOptions};

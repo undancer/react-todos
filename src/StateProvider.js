@@ -23,7 +23,7 @@ class StateProvider extends React.Component {
         });
     };
 
-    search = (text) => {
+    setSearchQuery = (text) => {
         this.setState({query: text || ''});
     };
 
@@ -43,7 +43,7 @@ class StateProvider extends React.Component {
     render() {
         let children = wrapChildrenWith(this.props.children, {
             data: this.state,
-            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'changeMode', 'search'])
+            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'changeMode', 'setSearchQuery'])
         });
         return <div>{children}</div>;
     }

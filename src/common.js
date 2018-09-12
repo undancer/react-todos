@@ -12,4 +12,9 @@ const wrapChildrenWith = (children, props) => {
     return React.Children.map(children, child => React.cloneElement(child, props), null);
 };
 
-export {objectWithOnly, wrapChildrenWith};
+
+const stringInclues = (str, substr) => {
+    return str.indexOf(substr) !== -1;
+}
+
+export {objectWithOnly, wrapChildrenWith, stringInclues};
