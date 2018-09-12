@@ -1,6 +1,7 @@
 import React from 'react';
 
 const App = () => {
+    let title = 'Things to do';
     let items = [
         {
             id: 1,
@@ -22,7 +23,7 @@ const App = () => {
         <div className="container">
             <div className="row">
                 <div className="todolist">
-                    <h1>Todos</h1>
+                    <h1>{title.toUpperCase()}</h1>
                     <ul className="list-unstyled">
                         {
                             items.map((item) => (
