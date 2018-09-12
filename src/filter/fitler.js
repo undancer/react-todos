@@ -12,4 +12,13 @@ const applyFilter = (list, filter) => {
             return list;
     }
 };
-export default applyFilter;
+
+const getOptions = () => {
+    return {
+        [FILTER_ALL]: 'All',
+        [FILTER_ACTIVE]: 'Active',
+        [FILTER_COMPLETED]: 'Completed'
+    };
+};
+
+export {FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED, applyFilter, getOptions};

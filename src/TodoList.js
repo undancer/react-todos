@@ -2,7 +2,7 @@ import React from "react";
 import TodoItem from "./TodoItem";
 import Header from "./Header";
 import Footer from "./Footer";
-import applyFilter from "./filter";
+import {applyFilter} from "./filter/fitler";
 
 const TodoList = (props) => {
     const {title, items, addNew, changeFilter, filter} = props;

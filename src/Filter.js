@@ -1,10 +1,7 @@
 import React from 'react';
+import {getOptions} from "./filter/fitler";
 
-const options = {
-    'all': 'All',
-    'active': 'Active',
-    'completed': 'Completed'
-};
+const options = getOptions();
 
 const Filter = (props) => {
     const {filter, change} = props;
