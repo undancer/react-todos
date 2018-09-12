@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import {applyFilter, FILTER_ACTIVE} from "./filter/fitler";
+import {applyFilter, FILTER_ALL} from "./filter/fitler";
 import {addToList, getAll, updateStatus} from "./todo/todo";
 import FilteredList from "./FilteredList";
 
@@ -10,7 +10,7 @@ class TodoList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            filter: FILTER_ACTIVE,
+            filter: FILTER_ALL,
             items: getAll()
         }
     }
