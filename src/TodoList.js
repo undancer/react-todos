@@ -35,14 +35,14 @@ class TodoList extends React.Component {
         const {title} = this.props;
         const {filter, items} = this.state;
         const count = items.length;
-        const filteredList = applyFilter(items, filter);
+        const filteredItems = applyFilter(items, filter);
         return (
             <div className="todolist">
                 <Header
                     title={title}
                     addNew={this.addNew}
                 />
-                <FilteredList items={filteredList} changeStatus={this.changeStatus}/>
+                <FilteredList items={filteredItems} changeStatus={this.changeStatus}/>
                 <Footer count={count} filter={filter} changeFilter={this.changeFilter}/>
             </div>
         );
