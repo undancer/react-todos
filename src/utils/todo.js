@@ -31,6 +31,7 @@ const addToList = (list, data) => {
 
 };
 
+//eslint-disable-next-line
 const getItemById = (itemId) => {
     return getAll().find(item => item.id === itemId);
 };

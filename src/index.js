@@ -2,11 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/wrappers/App';
 import registerServiceWorker from './registerServiceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'jquery'
-import 'popper.js'
-import 'bootstrap'
 import './index.css'
+import './config/bootstrap'
 import './config/fortawesome'
 
 ReactDOM.render(
