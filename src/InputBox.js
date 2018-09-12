@@ -36,6 +36,7 @@ class InputBox extends React.Component {
                 onKeyUp={this.handleKeyUp}
                 onChange={this.handleChange}
                 placeholder="Add New"
+                autoFocus
             />
         );
     }

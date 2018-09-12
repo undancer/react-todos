@@ -9,6 +9,7 @@ const SearchBox = (props) => {
             value={query}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search"
+            autoFocus
         />
     );
 };
