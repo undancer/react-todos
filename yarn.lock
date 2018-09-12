@@ -4046,6 +4046,10 @@ jsx-ast-utils@^2.0.0:
   dependencies:
     array-includes "^3.0.3"
 
+keycode-js@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/keycode-js/-/keycode-js-1.0.2.tgz#3b8ed922c778ea82e8e146a3a53fe6d7373dedcf"
+
 killable@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
