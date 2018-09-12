@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from "./TodoList";
 import StateProvider from "./StateProvider";
+import KeyStrokeHandler from "./KeyStrokeHandler";
 
 const App = () => {
     let title = 'Things to do';
@@ -8,9 +9,11 @@ const App = () => {
         <div className="container">
             <div className="row">
                 <StateProvider>
-                    <TodoList
-                        title={title}
-                    />
+                    <KeyStrokeHandler>
+                        <TodoList
+                            title={title}
+                        />
+                    </KeyStrokeHandler>
                 </StateProvider>
             </div>
         </div>
