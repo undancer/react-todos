@@ -5,6 +5,7 @@ import Footer from "./Footer";
 
 const TodoList = (props) => {
     const {title, items} = props;
+    const count = items.length;
     return (
         <div className="todolist">
             <Header title={title}/>
@@ -15,7 +16,7 @@ const TodoList = (props) => {
                     ))
                 }
             </ul>
-            <Footer/>
+            <Footer count={count}/>
         </div>
     );
 };
