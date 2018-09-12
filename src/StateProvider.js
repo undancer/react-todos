@@ -9,6 +9,7 @@ class StateProvider extends React.Component {
     constructor() {
         super();
         this.state = {
+            query: '',
             mode: MODE_CREATE,
             filter: FILTER_ALL,
             items: getAll()
@@ -20,6 +21,10 @@ class StateProvider extends React.Component {
         this.setState({
             items: updatedList
         });
+    };
+
+    search = (text) => {
+        this.setState({query: text || ''});
     };
 
     changeFilter = (filter) => {
@@ -38,7 +43,7 @@ class StateProvider extends React.Component {
     render() {
         let children = wrapChildrenWith(this.props.children, {
             data: this.state,
-            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'changeMode'])
+            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'changeMode', 'search'])
         });
         return <div>{children}</div>;
     }
