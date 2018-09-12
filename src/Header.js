@@ -5,7 +5,7 @@ const Header = (props) => {
     const {title, addNew} = props;
     return (
         <header>
-            <h1>{title.toUpperCase()}</h1>
+            <h1>{title}</h1>
             <InputBox
                 addNew={addNew}
             />
