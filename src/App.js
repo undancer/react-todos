@@ -3,14 +3,17 @@ import React from 'react';
 const App = () => {
     let items = [
         {
+            id: 1,
             text: 'Learn Javascript',
             completed: false
         },
         {
+            id: 2,
             text: 'Learn React',
             completed: false
         },
         {
+            id: 3,
             text: 'Build a React App',
             completed: true
         }
@@ -23,7 +26,7 @@ const App = () => {
                     <ul className="list-unstyled">
                         {
                             items.map((item) => (
-                                    <li className="ui-state-default">
+                                    <li key={item.id} className="ui-state-default">
                                         <div className="checkbox">
                                             <label>
                                                 <input type="checkbox" value="" checked={item.completed}/>{item.text}
