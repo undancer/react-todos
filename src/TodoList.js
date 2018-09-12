@@ -6,6 +6,7 @@ import Footer from "./Footer";
 const TodoList = (props) => {
     const {title, items, addNew, changeFilter, filter} = props;
     const count = items.length;
+    const filteredList = applyFilter(items, filter);
     return (
         <div className="todolist">
             <Header
@@ -14,7 +15,7 @@ const TodoList = (props) => {
             />
             <ul className="list-unstyled">
                 {
-                    items.map((item) => (
+                    filteredList.map((item) => (
                         <TodoItem item={item}/>
                     ))
                 }
@@ -23,4 +24,16 @@ const TodoList = (props) => {
         </div>
     );
 };
+
+const applyFilter = (list, filter) => {
+    switch (filter) {
+        case 'completed':
+            return list.filter(item => item.completed === true);
+        case 'active':
+            return list.filter(item => item.completed === false);
+        default:
+            return list;
+    }
+};
+
 export default TodoList;
