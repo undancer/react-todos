@@ -38,6 +38,10 @@ class App extends React.Component {
         });
     };
 
+    changeFilter = (filter) => {
+        this.setState({filter});
+    };
+
     render() {
         let title = 'Things to do';
         return (
@@ -46,6 +50,7 @@ class App extends React.Component {
                     <TodoList
                         title={title}
                         addNew={this.addNew}
+                        changeFilter={this.changeFilter}
                         {...this.state}
                     />
                 </div>
