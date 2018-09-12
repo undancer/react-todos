@@ -1,11 +1,10 @@
 import React from 'react';
 import {getOptions} from "./filter/fitler";
 
-const options = getOptions();
-
 const Filter = (props) => {
     const {filter, change} = props;
     const getClass = (key) => (key === filter ? 'selected' : '');
+    const options = getOptions();
 
     return (
         <ul className="filters list-unstyled clearfix">
