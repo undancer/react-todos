@@ -6,6 +6,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            filter: 'active',
             items: [
                 {
                     id: 1,
@@ -45,7 +46,7 @@ class App extends React.Component {
                     <TodoList
                         title={title}
                         addNew={this.addNew}
-                        items={this.state.items}
+                        {...this.state}
                     />
                 </div>
             </div>
