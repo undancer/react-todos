@@ -1,9 +1,9 @@
 import React from "react";
-import TodoItem from "./TodoItem";
 import Header from "./Header";
 import Footer from "./Footer";
 import {applyFilter, FILTER_ACTIVE} from "./filter/fitler";
 import {addToList, getAll, updateStatus} from "./todo/todo";
+import FilteredList from "./FilteredList";
 
 class TodoList extends React.Component {
 
@@ -42,26 +42,7 @@ class TodoList extends React.Component {
                     title={title}
                     addNew={this.addNew}
                 />
-                {
-                    filteredList.length > 0 ?
-                        (
-                            <ul className="list-unstyled">
-                                {
-                                    filteredList.map((item) => (
-                                        <TodoItem
-                                            id={item.id}
-                                            data={item.text}
-                                            completed={item.completed}
-                                            changeStatus={this.changeStatus}
-                                        />
-                                    ))
-                                }
-                            </ul>
-                        ) : (
-                            <p className="alert alert-info">There are no items.</p>
-                        )
-                }
-
+                <FilteredList items={filteredList} changeStatus={this.changeStatus}/>
                 <Footer count={count} filter={filter} changeFilter={this.changeFilter}/>
             </div>
         );
