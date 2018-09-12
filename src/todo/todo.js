@@ -1,3 +1,5 @@
+import update from "immutability-helper";
+
 const getAll = () => {
     return [
         {
@@ -29,4 +31,22 @@ const addToList = (list, data) => {
 
 };
 
-export {getAll, addToList};
+const getItemById = (itemId) => {
+    return getAll().find(item => item.id === itemId);
+};
+
+const updateStatus = (items, itemId, completed) => {
+
+    let index = items.findIndex(item => item.id === itemId);
+
+    return update(items, {
+        [index]: {
+            completed: {
+                $set: completed
+            }
+        }
+    })
+
+};
+
+export {getAll, addToList, updateStatus};

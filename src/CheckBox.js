@@ -9,9 +9,19 @@ class CheckBox extends React.Component {
         };
     }
 
+    handleChange = (event) => {
+        const {checked} = event.target;
+        this.setState({checked});
+        this.props.onChange(checked);
+    };
+
     render() {
         return (
-            <input type="checkbox" checked={this.state.checked}/>
+            <input
+                type="checkbox"
+                checked={this.state.checked}
+                onChange={this.handleChange}
+            />
         );
 
     }

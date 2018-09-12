@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import Header from "./Header";
 import Footer from "./Footer";
 import {applyFilter, FILTER_ACTIVE} from "./filter/fitler";
-import {addToList, getAll} from "./todo/todo";
+import {addToList, getAll, updateStatus} from "./todo/todo";
 
 class TodoList extends React.Component {
 
@@ -24,6 +24,11 @@ class TodoList extends React.Component {
 
     changeFilter = (filter) => {
         this.setState({filter});
+    };
+
+    changeStatus = (itemId, completed) => {
+        const updatedList = updateStatus(this.state.items, itemId, completed);
+        this.setState({items: updatedList});
     };
 
     render() {
@@ -47,6 +52,7 @@ class TodoList extends React.Component {
                                             id={item.id}
                                             data={item.text}
                                             completed={item.completed}
+                                            changeStatus={this.changeStatus}
                                         />
                                     ))
                                 }
