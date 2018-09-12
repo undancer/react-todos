@@ -2,7 +2,7 @@ import React from 'react';
 import {getOptions} from "./filter/fitler";
 
 const Filter = (props) => {
-    const {filter, change} = props;
+    const {filter, changeFilter} = props;
     const getClass = (key) => (key === filter ? 'selected' : '');
     const options = getOptions();
 
@@ -14,7 +14,7 @@ const Filter = (props) => {
                         <li key={key}>
                             <a
                                 className={getClass(key)}
-                                onClick={() => change(key)}
+                                onClick={() => changeFilter(key)}
                             >
                                 {options[key]}
                             </a>

@@ -7,7 +7,7 @@ import FilteredList from "./FilteredList";
 const TodoList = (props) => {
     const {title} = props;
     const {items, filter, mode} = props.data;
-    const {addNew, changeFilter, changeStatus} = props.actions;
+    const {addNew, changeFilter, changeStatus, changeMode} = props.actions;
     const count = items.length;
     const filteredItems = applyFilter(items, filter);
     return (
@@ -17,7 +17,9 @@ const TodoList = (props) => {
                 {...{addNew, mode}}
             />
             <FilteredList items={filteredItems} changeStatus={changeStatus}/>
-            <Footer count={count} filter={filter} changeFilter={changeFilter} mode={mode}/>
+            <Footer
+                {...{count, filter, mode, changeFilter, changeMode}}
+            />
         </div>
     );
 };

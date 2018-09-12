@@ -2,7 +2,7 @@ import React from "react";
 import {FILTER_ALL} from "./filter/fitler";
 import {addToList, getAll, updateStatus} from "./todo/todo";
 import {objectWithOnly, wrapChildrenWith} from "./common";
-import {MODE_CREATE} from "./mode";
+import {MODE_CREATE, MODE_NONE} from "./mode";
 
 class StateProvider extends React.Component {
 
@@ -31,10 +31,14 @@ class StateProvider extends React.Component {
         this.setState({items: updatedList});
     };
 
+    changeMode = (mode = MODE_NONE) => {
+        this.setState({mode});
+    };
+
     render() {
         let children = wrapChildrenWith(this.props.children, {
             data: this.state,
-            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus'])
+            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'changeMode'])
         });
         return <div>{children}</div>;
     }

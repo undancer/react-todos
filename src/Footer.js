@@ -3,7 +3,7 @@ import Filter from "./Filter";
 import ButtonWrapper from "./ButtonWrapper";
 
 const Footer = (props) => {
-    const {count, filter, changeFilter, mode} = props;
+    const {count, filter, mode, changeFilter, changeMode} = props;
     return (
         <div className="todo-footer clearfix">
             <div className="float-left buttons">
@@ -13,7 +13,9 @@ const Footer = (props) => {
                 {`${count} items left`}
             </div>
             <div className="float-right">
-                <Filter filter={filter} change={changeFilter}/>
+                <Filter
+                    {...{filter, changeFilter}}
+                />
             </div>
         </div>
     );
