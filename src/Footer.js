@@ -5,7 +5,7 @@ import ButtonWrapper from "./ButtonWrapper";
 const Footer = (props) => {
     const {count, filter, changeFilter} = props;
     return (
-        <div className="todo-footer clearfix">
+        <footer className="clearfix">
             <div className="float-left buttons">
                 <ButtonWrapper {...props}/>
             </div>
@@ -17,7 +17,7 @@ const Footer = (props) => {
                     {...{filter, changeFilter}}
                 />
             </div>
-        </div>
+        </footer>
     );
 };
 export default Footer;
