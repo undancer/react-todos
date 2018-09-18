@@ -15,9 +15,9 @@ const applyFilter = (list: any, filter: any) => {
     }
 };
 
-const search = (list: any, query: any) => {
+const search = (list: [], query: string) => {
     let q = query.trim().toLowerCase();
-    return list.filter((text: string) => stringInclues(new String(text).toUpperCase(), q));
+    return list.filter(({text}: { text: string }) => stringInclues(text.toLowerCase(), q));
 };
 
 
