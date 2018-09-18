@@ -4,7 +4,7 @@ export const MODE_NONE = 'none';
 export const MODE_SEARCH = 'search';
 export const MODE_CREATE = 'create';
 
-export function getNextModeByKey(current, keyPressed) {
+export function getNextModeByKey(current: string, keyPressed: number) {
     switch (current) {
         case MODE_NONE:
             if (keyPressed === KEY_SLASH) return MODE_SEARCH;

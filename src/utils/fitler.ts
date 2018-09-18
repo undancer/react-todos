@@ -4,21 +4,21 @@ const FILTER_ALL = 'all';
 const FILTER_ACTIVE = 'active';
 const FILTER_COMPLETED = 'completed';
 
-const applyFilter = (list, filter) => {
+const applyFilter = (list: any, filter: any) => {
     switch (filter) {
         case FILTER_COMPLETED:
-            return list.filter(item => item.completed === true);
+            return list.filter((item: any) => item.completed === true);
         case FILTER_ACTIVE:
-            return list.filter(item => item.completed === false);
+            return list.filter((item: any) => item.completed === false);
         default:
             return list;
     }
 };
 
-const search = (list, query) => {
+const search = (list: any, query: any) => {
     let q = query.trim().toLowerCase();
-    return list.filter(({text}) => stringInclues(text.toLowerCase(), q));
-}
+    return list.filter((text: string) => stringInclues(new String(text).toUpperCase(), q));
+};
 
 
 const getOptions = () => {

@@ -25,20 +25,20 @@ const getNextId = () => {
     return getAll().length + todoCounter++;
 };
 
-const addToList = (list, data) => {
+const addToList = (list: any, data: any) => {
     let item = Object.assign({id: getNextId()}, data);
     return list.concat([item]);
 
 };
 
 //eslint-disable-next-line
-const getItemById = (itemId) => {
-    return getAll().find(item => item.id === itemId);
-};
+// const getItemById = (itemId) => {
+//     return getAll().find(item => item.id === itemId);
+// };
 
-const updateStatus = (items, itemId, completed) => {
+const updateStatus = (items: any, itemId: number, completed: boolean) => {
 
-    let index = items.findIndex(item => item.id === itemId);
+    let index = items.findIndex((item: any) => item.id === itemId);
 
     return update(items, {
         [index]: {
