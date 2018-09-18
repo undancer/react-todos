@@ -23,7 +23,8 @@ class InputBox extends React.Component<IInputBoxProps, IInputBoxState> {
         this.setState({value: ''});
     }
 
-    handleKeyUp = (event: any) => {
+    // @ts-ignore
+    handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
         const {addNew} = this.props;
         const text = this.state.value.trim();
         if (event.keyCode === KEY_RETURN) {
