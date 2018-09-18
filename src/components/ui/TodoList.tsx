@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {applyFilter, search} from "../../utils/fitler";
 import FilteredList from "./FilteredList";
-import Info from "./Info";
+import InfoContainer from "../../containers/InfoContainer";
 
 interface ITodoListProps {
     readonly title: string;
@@ -30,9 +30,7 @@ class TodoList extends React.Component<ITodoListProps> {
                 <Footer
                     {...{count}}
                 />
-                <Info
-                    {...{mode}}
-                />
+                <InfoContainer/>
             </div>
         );
     }
