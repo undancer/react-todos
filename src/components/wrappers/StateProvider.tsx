@@ -2,7 +2,6 @@ import * as React from "react";
 import {FILTER_ALL} from "../../utils/fitler";
 import {addToList, getAll, updateStatus} from "../../utils/todo";
 import {objectWithOnly, wrapChildrenWith} from "../../utils/common";
-import {MODE_CREATE, MODE_NONE} from "../../utils/mode";
 import {Row} from "reactstrap";
 
 interface IStateProviderProps {
@@ -11,7 +10,6 @@ interface IStateProviderProps {
 
 
 interface IStateProviderState {
-    mode: string;
     filter: string;
     query: string;
     items: any;
@@ -24,7 +22,6 @@ class StateProvider extends React.Component<IStateProviderProps, IStateProviderS
         super(props);
         this.state = {
             query: '',
-            mode: MODE_CREATE,
             filter: FILTER_ALL,
             items: getAll()
         }
@@ -49,15 +46,11 @@ class StateProvider extends React.Component<IStateProviderProps, IStateProviderS
         const updatedList = updateStatus(this.state.items, itemId, completed);
         this.setState({items: updatedList});
     };
-
-    changeMode = (mode = MODE_NONE) => {
-        this.setState({mode});
-    };
-
+    
     render() {
         let children = wrapChildrenWith(this.props.children, {
             data: this.state,
-            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'changeMode', 'setSearchQuery'])
+            actions: objectWithOnly(this, ['addNew', 'changeFilter', 'changeStatus', 'setSearchQuery'])
         });
         return (
             <Row>

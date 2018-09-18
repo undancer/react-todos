@@ -1,6 +1,6 @@
 import * as React from "react";
 import Filter from "./Filter";
-import ButtonWrapper from "./ButtonWrapper";
+import ButtonWrapperContainer from "../../containers/ButtonWrapperContainer";
 
 interface IFooterProps {
     readonly count: number;
@@ -14,11 +14,10 @@ class Footer extends React.Component<IFooterProps> {
 
     render() {
         const {count, filter, changeFilter} = this.props;
-        const {mode, changeMode} = this.props;
         return (
             <footer className="clearfix">
                 <div className="float-left buttons">
-                    <ButtonWrapper {...{mode, changeMode}}/>
+                    <ButtonWrapperContainer/>
                 </div>
                 <div className="float-left">
                     {`${count} items left`}

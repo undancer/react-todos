@@ -5,9 +5,13 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css'
 import './config/bootstrap'
 import './config/fortawesome'
+import {Provider} from "react-redux";
+import store from "./stores";
 
 ReactDOM.render(
     (
-        <App/>
+        <Provider store={store}>
+            <App/>
+        </Provider>
     ), document.getElementById('root'));
 registerServiceWorker();
