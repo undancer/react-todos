@@ -1,20 +1,19 @@
 import * as React from 'react';
-import StateProvider from "./StateProvider";
 import KeyStrokeHandler from "./KeyStrokeHandler";
-import {Container} from "reactstrap";
+import {Container, Row} from "reactstrap";
 import TodoListContainer from "../../containers/TodoListContainer";
 
 const App = () => {
     let title = 'Things to do';
     return (
         <Container>
-            <StateProvider>
+            <Row>
                 <KeyStrokeHandler>
                     <TodoListContainer
                         title={title}
                     />
                 </KeyStrokeHandler>
-            </StateProvider>
+            </Row>
         </Container>
     );
 };
