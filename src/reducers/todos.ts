@@ -8,7 +8,8 @@ interface TodoState {
 
 const initialState = {
     mode: MODE_CREATE,
-    filter: FILTER_ALL
+    filter: FILTER_ALL,
+    query: '',
 };
 
 const todoReducer: Reducer = (state: TodoState = initialState, action: any) => {
@@ -19,6 +20,8 @@ const todoReducer: Reducer = (state: TodoState = initialState, action: any) => {
             return {...state, mode: action.mode};
         case 'CHANGE_FILTER':
             return {...state, filter: action.filter};
+        case 'SET_SEARCH_QUERY':
+            return {...state, query: action.query || ''};
         default:
             return state;
     }

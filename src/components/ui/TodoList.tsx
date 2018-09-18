@@ -8,6 +8,7 @@ import InfoContainer from "../../containers/InfoContainer";
 interface ITodoListProps {
     readonly title: string;
     filter: string,
+    query: string,
     data?: any;
     actions?: any;
 }
@@ -15,16 +16,16 @@ interface ITodoListProps {
 class TodoList extends React.Component<ITodoListProps> {
 
     render() {
-        const {title, filter} = this.props;
-        const {items, mode, query} = this.props.data;
-        const {addNew, changeStatus, setSearchQuery} = this.props.actions;
+        const {title, filter, query} = this.props;
+        const {items} = this.props.data;
+        const {addNew, changeStatus} = this.props.actions;
         const count = items.length;
         const filteredItems = search(applyFilter(items, filter), query);
         return (
             <div className="todolist">
                 <Header
                     title={title}
-                    {...{addNew, mode, query, setSearchQuery}}
+                    {...{addNew}}
                 />
                 <FilteredList items={filteredItems} changeStatus={changeStatus}/>
                 <Footer

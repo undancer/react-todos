@@ -9,7 +9,6 @@ interface IStateProviderProps {
 
 
 interface IStateProviderState {
-    query: string;
     items: any;
 }
 
@@ -18,7 +17,6 @@ class StateProvider extends React.Component<IStateProviderProps, IStateProviderS
     constructor(props: IStateProviderProps) {
         super(props);
         this.state = {
-            query: '',
             items: getAll()
         }
     }
@@ -30,10 +28,6 @@ class StateProvider extends React.Component<IStateProviderProps, IStateProviderS
         });
     };
 
-    setSearchQuery = (text: string) => {
-        this.setState({query: text || ''});
-    };
-
     changeStatus = (itemId: number, completed: boolean) => {
         const updatedList = updateStatus(this.state.items, itemId, completed);
         this.setState({items: updatedList});
@@ -42,7 +36,7 @@ class StateProvider extends React.Component<IStateProviderProps, IStateProviderS
     render() {
         let children = wrapChildrenWith(this.props.children, {
             data: this.state,
-            actions: objectWithOnly(this, ['addNew', 'changeStatus', 'setSearchQuery'])
+            actions: objectWithOnly(this, ['addNew', 'changeStatus'])
         });
         return (
             <Row>
