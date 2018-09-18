@@ -7,6 +7,7 @@ import Info from "./Info";
 
 interface ITodoListProps {
     readonly title: string;
+    filter: string,
     data?: any;
     actions?: any;
 }
@@ -14,9 +15,9 @@ interface ITodoListProps {
 class TodoList extends React.Component<ITodoListProps> {
 
     render() {
-        const {title} = this.props;
-        const {items, filter, mode, query} = this.props.data;
-        const {addNew, changeFilter, changeStatus, changeMode, setSearchQuery} = this.props.actions;
+        const {title, filter} = this.props;
+        const {items, mode, query} = this.props.data;
+        const {addNew, changeStatus, setSearchQuery} = this.props.actions;
         const count = items.length;
         const filteredItems = search(applyFilter(items, filter), query);
         return (
@@ -27,7 +28,7 @@ class TodoList extends React.Component<ITodoListProps> {
                 />
                 <FilteredList items={filteredItems} changeStatus={changeStatus}/>
                 <Footer
-                    {...{count, filter, mode, changeFilter, changeMode}}
+                    {...{count}}
                 />
                 <Info
                     {...{mode}}

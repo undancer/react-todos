@@ -13,9 +13,7 @@ const mapStateToProps = (state: any = {}, ownProps: any) => {
 const mapDispatchToProps = (dispatch: Dispatch) => ({
 
     changeMode: (mode: string = MODE_NONE) => {
-        console.log("CHANGE_MODE BEFORE");
         dispatch({type: 'CHANGE_MODE', mode});
-        console.log("CHANGE_MODE AFTER");
     }
 
 });
