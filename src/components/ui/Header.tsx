@@ -3,6 +3,10 @@ import InputWrapper from "../wrappers/InputWrapper";
 
 interface IHeaderProps {
     readonly title: string;
+    readonly mode: string;
+    readonly addNew: any;
+    readonly query: string;
+    readonly setSearchQuery: any;
 }
 
 class Header extends React.Component<IHeaderProps> {
@@ -16,7 +20,7 @@ class Header extends React.Component<IHeaderProps> {
             </header>
         );
     }
-    
+
 }
 
 export default Header;

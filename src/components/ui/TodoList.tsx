@@ -7,8 +7,8 @@ import Info from "./Info";
 
 interface ITodoListProps {
     readonly title: string;
-    data: any;
-    actions: any;
+    data?: any;
+    actions?: any;
 }
 
 class TodoList extends React.Component<ITodoListProps> {
@@ -35,7 +35,7 @@ class TodoList extends React.Component<ITodoListProps> {
             </div>
         );
     }
-    
+
 }
 
 export default TodoList;

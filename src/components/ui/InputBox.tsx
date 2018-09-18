@@ -2,8 +2,8 @@ import * as React from "react";
 import {KEY_RETURN} from "keycode-js";
 
 interface IInputBoxProps {
-    readonly value: string;
-    addNew: any;
+    readonly value?: string;
+    readonly addNew: any;
 }
 
 interface IInputBoxState {

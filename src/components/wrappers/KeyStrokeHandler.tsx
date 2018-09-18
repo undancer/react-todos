@@ -1,9 +1,14 @@
 import {wrapChildrenWith} from "../../utils/common";
-import React from 'react';
+import * as React from 'react';
 import {getNextModeByKey} from "../../utils/mode";
 import {Col} from "reactstrap";
 
-class KeyStrokeHandler extends React.Component {
+interface IKeyStrokeHandlerProps {
+    readonly data?: any;
+    readonly actions?: any;
+}
+
+class KeyStrokeHandler extends React.Component<IKeyStrokeHandlerProps> {
 
     componentWillMount() {
         window.addEventListener('keydown', this.handleKeyUp);
@@ -13,7 +18,7 @@ class KeyStrokeHandler extends React.Component {
         window.removeEventListener('keydown', this.handleKeyUp);
     }
 
-    handleKeyUp = (event) => {
+    handleKeyUp = (event: any) => {
         const {mode} = this.props.data;
         const nextMode = getNextModeByKey(mode, event.keyCode);
         if (nextMode !== mode) {
