@@ -1,9 +1,18 @@
-import React from "react";
+import * as React from "react";
 import {KEY_RETURN} from "keycode-js";
 
-class InputBox extends React.Component {
+interface IInputBoxProps {
+    readonly value: string;
+    addNew: any;
+}
 
-    constructor(props) {
+interface IInputBoxState {
+    value: string;
+}
+
+class InputBox extends React.Component<IInputBoxProps, IInputBoxState> {
+
+    constructor(props: IInputBoxProps) {
         super(props);
         this.state = {
             value: props.value || ''
@@ -14,7 +23,7 @@ class InputBox extends React.Component {
         this.setState({value: ''});
     }
 
-    handleKeyUp = (event) => {
+    handleKeyUp = (event: any) => {
         const {addNew} = this.props;
         const text = this.state.value.trim();
         if (event.keyCode === KEY_RETURN) {
@@ -23,7 +32,7 @@ class InputBox extends React.Component {
         }
     };
 
-    handleChange = (event) => {
+    handleChange = (event: any) => {
         this.setState({value: event.target.value});
     };
 

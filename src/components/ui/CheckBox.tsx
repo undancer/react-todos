@@ -1,15 +1,24 @@
-import React from 'react';
+import * as React from 'react';
 
-class CheckBox extends React.Component {
+interface ICheckBoxProps {
+    readonly checked: boolean;
+    readonly onChange: any;
+}
 
-    constructor(props) {
+interface ICheckBoxState {
+    checked: boolean;
+}
+
+class CheckBox extends React.Component<ICheckBoxProps, ICheckBoxState> {
+
+    constructor(props: ICheckBoxProps) {
         super(props);
         this.state = {
             checked: props.checked
         };
     }
 
-    handleChange = (event) => {
+    handleChange = (event: any) => {
         const {checked} = event.target;
         this.setState({checked});
         this.props.onChange(checked);
