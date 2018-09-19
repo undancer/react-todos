@@ -1,6 +1,7 @@
-import {MODE_CREATE, MODE_NONE, MODE_SEARCH} from "../../utils/mode";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import * as React from "react";
+import {Link} from "react-router-dom";
+import {MODE_CREATE, MODE_NONE, MODE_SEARCH} from "../../utils/mode";
 
 interface IButtonWrapperProps {
     readonly mode: string;
@@ -15,22 +16,24 @@ class ButtonWrapper extends React.Component<IButtonWrapperProps> {
         const isSearchMode = () => mode === MODE_SEARCH;
         return (
             <div>
-                <a
+                <Link
+                    to="/new"
                     className={'button add ' + (isCreateMode() ? 'selected' : '')}
                     onClick={() => changeMode(isCreateMode() ? MODE_NONE : MODE_CREATE)}
                 >
                     <FontAwesomeIcon icon="plus"/>
-                </a>
-                <a
+                </Link>
+                <Link
+                    to="/search"
                     className={'button search ' + (isSearchMode() ? 'selected' : '')}
                     onClick={() => changeMode(isSearchMode() ? MODE_NONE : MODE_SEARCH)}
                 >
                     <FontAwesomeIcon icon="search"/>
-                </a>
+                </Link>
             </div>
         );
     }
-    
+
 }
 
 export default ButtonWrapper;
