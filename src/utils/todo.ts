@@ -50,4 +50,22 @@ const updateStatus = (items: any, itemId: number, completed: boolean) => {
 
 };
 
-export {getAll, addToList, updateStatus};
+const updateText = (items: any, itemId: number, text: string) => {
+    let index = items.findIndex((item: any) => item.id === itemId);
+
+    return update(items, {
+        [index]: {
+            text: {
+                $set: text
+            }
+        }
+    })
+
+};
+
+const deleteItem = (items: any, itemId: number) => {
+    let index = items.findIndex((item: any) => item.id === itemId);
+    return [...items.slice(0, index), ...items.slice(index + 1)]
+};
+
+export {getAll, addToList, updateStatus, updateText, deleteItem};

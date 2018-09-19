@@ -1,7 +1,7 @@
 import {Reducer} from "redux";
 import {MODE_CREATE} from "../utils/mode";
 import {FILTER_ALL} from "../utils/fitler";
-import {addToList, getAll, updateStatus} from "../utils/todo";
+import {addToList, deleteItem, getAll, updateStatus, updateText} from "../utils/todo";
 
 interface TodoState {
     items: any,
@@ -28,8 +28,20 @@ const todoReducer: Reducer = (state: TodoState = initialState, action: any) => {
             const updatedList = updateStatus(state.items, action.id, action.completed);
             return {...state, items: updatedList};
         }
+        case 'CHANGE_TODO': {
+            const updatedList = updateText(state.items, action.id, action.text);
+            return {...state, items: updatedList, editing: null};
+        }
         case 'SET_SEARCH_QUERY':
             return {...state, query: action.query || ''};
+        case 'EDIT':
+            return {...state, editing: action.id};
+        case 'CANCEL':
+            return {...state, editing: null};
+        case 'DESTROY': {
+            const updatedList = deleteItem(state.items, action.id);
+            return {...state, items: updatedList}
+        }
         default:
             return state;
     }
