@@ -1,5 +1,4 @@
 import {connect} from "react-redux";
-import {Dispatch} from "redux";
 import TodoList from "../components/ui/TodoList";
 import {withRouter} from "react-router-dom";
 
@@ -9,8 +8,6 @@ const mapStateToProps = (state: any) => ({
     items: state.todos.items,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({});
-
-const TodoListContainer = withRouter<any>(connect(mapStateToProps, mapDispatchToProps)(TodoList));
+const TodoListContainer = withRouter<any>(connect(mapStateToProps)(TodoList));
 
 export default TodoListContainer;

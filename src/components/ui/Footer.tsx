@@ -1,6 +1,7 @@
 import * as React from "react";
-import ButtonWrapperContainer from "../../containers/ButtonWrapperContainer";
 import FilterContainer from "../../containers/FilterContainer";
+import {Link, NavLink} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface IFooterProps {
     readonly count: number;
@@ -13,7 +14,18 @@ class Footer extends React.Component<IFooterProps> {
         return (
             <footer className="clearfix">
                 <div className="float-left buttons">
-                    <ButtonWrapperContainer/>
+                    <Link
+                        to="/"
+                        className="button"
+                    >
+                        <FontAwesomeIcon icon="plus"/>
+                    </Link>
+                    <NavLink
+                        to="/search"
+                        className="button"
+                    >
+                        <FontAwesomeIcon icon="search"/>
+                    </NavLink>
                 </div>
                 <div className="float-left">
                     {`${count} items left`}

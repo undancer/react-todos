@@ -1,5 +1,7 @@
 import * as React from "react";
-import InputWrapperContainer from "../../containers/InputWrapperContainer";
+import {Route, Switch} from "react-router";
+import InputBoxContainer from "../../containers/InputBoxContainer";
+import SearchBoxContainer from "../../containers/SearchBoxContainer";
 
 interface IHeaderProps {
     readonly title: string;
@@ -12,7 +14,10 @@ class Header extends React.Component<IHeaderProps> {
         return (
             <header>
                 <h1>{title}</h1>
-                <InputWrapperContainer/>
+                <Switch>
+                    <Route exact path="/" component={InputBoxContainer}/>
+                    <Route path="/search" component={SearchBoxContainer}/>
+                </Switch>
             </header>
         );
     }
