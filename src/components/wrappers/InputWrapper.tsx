@@ -2,6 +2,7 @@ import * as React from 'react';
 import {MODE_CREATE, MODE_SEARCH} from "../../utils/mode";
 import SearchBoxContainer from "../../containers/SearchBoxContainer";
 import InputBoxContainer from "../../containers/InputBoxContainer";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 interface IInputWrapperProps {
     readonly mode: string;
@@ -16,7 +17,12 @@ class InputWrapper extends React.Component<IInputWrapperProps> {
             case MODE_SEARCH:
                 return <SearchBoxContainer/>;
             default:
-                return null;
+                return (
+                    <Router>
+                        <Route exact path="/" component={InputBoxContainer}/>
+                        <Route path="/search" component={SearchBoxContainer}/>
+                    </Router>
+                );
         }
     }
 }
