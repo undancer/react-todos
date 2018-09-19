@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {getOptions} from "../../utils/fitler";
+import {Nav, NavItem, NavLink} from "reactstrap";
 
 interface IFilterProps {
     readonly filter: string;
@@ -14,25 +15,25 @@ class Filter extends React.Component<IFilterProps> {
         const options = getOptions();
 
         return (
-            <ul className="filters list-unstyled clearfix">
+            <Nav className="filters list-unstyled clearfix">
                 {
                     Object.keys(options).map((key: string) =>
                         (
-                            <li key={key}>
-                                <a
+                            <NavItem key={key}>
+                                <NavLink
                                     className={getClass(key)}
                                     onClick={() => changeFilter(key)}
                                 >
                                     {options[key]}
-                                </a>
-                            </li>
+                                </NavLink>
+                            </NavItem>
                         )
                     )
                 }
-            </ul>
+            </Nav>
         );
     }
-    
+
 }
 
 export default Filter;

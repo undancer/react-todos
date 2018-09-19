@@ -1,8 +1,9 @@
 import * as React from 'react';
+import {ChangeEvent} from 'react';
 
 interface ICheckBoxProps {
     readonly checked: boolean;
-    readonly onChange: any;
+    readonly onChange: (checked: boolean) => {};
 }
 
 interface ICheckBoxState {
@@ -18,7 +19,7 @@ class CheckBox extends React.Component<ICheckBoxProps, ICheckBoxState> {
         };
     }
 
-    handleChange = (event: any) => {
+    handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {checked} = event.target;
         this.setState({checked});
         this.props.onChange(checked);
