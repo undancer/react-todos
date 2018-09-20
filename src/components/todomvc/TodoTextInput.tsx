@@ -15,6 +15,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 interface ITodoTextInputProps {
+    value?: string;
     addNew: (value: string) => void;
 }
 
@@ -23,6 +24,13 @@ interface ITodoTextInputState {
 }
 
 class TodoTextInput extends React.Component<ITodoTextInputProps, ITodoTextInputState> {
+
+    constructor(props: ITodoTextInputProps) {
+        super(props);
+        this.state = {
+            value: props.value || ''
+        };
+    }
 
     handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {value} = event.target;
@@ -41,11 +49,13 @@ class TodoTextInput extends React.Component<ITodoTextInputProps, ITodoTextInputS
 
 
     render() {
+        const {value} = this.state;
         return (
             <input
                 className="new-todo"
                 placeholder="What needs to be done?"
                 autoFocus
+                value={value}
                 onChange={this.handleChange}
                 onKeyUp={this.handleKeyUp}
             />
