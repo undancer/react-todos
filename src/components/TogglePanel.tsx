@@ -3,8 +3,9 @@ import {MouseEvent} from "react";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
 import {toggleAll} from "../actions";
+import ITodo from "../models/ITodo";
 
-const mapStateToProps = (state: { todos: { items: [] } }) => ({
+const mapStateToProps = (state: { todos: { items: ITodo[] } }) => ({
     items: state.todos.items
 });
 
@@ -13,7 +14,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 interface ITogglePanelProps {
-    items: [],
+    items: ITodo[],
     onToggleAll: (completed: boolean) => void,
 }
 
@@ -27,7 +28,7 @@ class TogglePanel extends React.Component<ITogglePanelProps> {
     isAllCompleted = () => {
         const {items} = this.props;
         const count = items.length;
-        const completed = items.filter((item: any) => item.completed).length;
+        const completed = items.filter((item: ITodo) => item.completed).length;
         return count === completed;
     };
 
@@ -39,10 +40,17 @@ class TogglePanel extends React.Component<ITogglePanelProps> {
         }
         return (
             <span>
-                <input id="toggle-all" className="toggle-all" type="checkbox"
-                       checked={this.isAllCompleted()}
+                <input
+                    id="toggle-all"
+                    className="toggle-all"
+                    type="checkbox"
+                    defaultChecked={this.isAllCompleted()}
                 />
-                <label htmlFor="toggle-all" onClick={this.handleClick}>Mark all as complete</label>
+                <label
+                    htmlFor="toggle-all"
+                    onClick={this.handleClick}>
+                    Mark all as complete
+                </label>
             </span>
         );
     }
