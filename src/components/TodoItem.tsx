@@ -4,31 +4,23 @@ import classNames from "classnames";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
 import {KEY_ESCAPE, KEY_RETURN} from "keycode-js";
+import {cancelTodo, destroyTodo, editTodo, saveTodo, toggleTodo} from "../actions";
 
 
-const mapStateToProps = (state: any) => ({});
+const mapStateToProps = (state: {}) => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    changeStatus: (id: number, completed: boolean) => {
-        dispatch({type: 'CHANGE_STATUS', id, completed})
-    },
 
-    onEdit: (id: number) => {
-        dispatch({type: 'EDIT', id})
+    changeStatus: (id: number, completed: boolean) => dispatch(toggleTodo(id, completed)),
 
-    },
+    onEdit: (id: number) => dispatch(editTodo(id)),
 
-    onSave: (id: number, text: string) => {
-        dispatch({type: 'CHANGE_TODO', id, text})
-    },
+    onSave: (id: number, text: string) => dispatch(saveTodo(id, text)),
 
-    onCancel: (id: number) => {
-        dispatch({type: 'CANCEL', id})
-    },
+    onCancel: (id: number) => dispatch(cancelTodo(id)),
 
-    onDestroy: (id: number) => {
-        dispatch({type: 'DESTROY', id})
-    }
+    onDestroy: (id: number) => dispatch(destroyTodo(id)),
+
 });
 
 

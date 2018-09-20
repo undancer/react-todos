@@ -4,15 +4,14 @@ import Filter from "./Filter";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
 import {RouteComponentProps, withRouter} from "react-router";
+import {clearCompleted} from "../actions";
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: { todos: { items: [] } }) => ({
     items: state.todos.items,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    onClearCompleted: () => {
-        dispatch({type: 'CLEAR_COMPLETED'})
-    }
+    onClearCompleted: () => dispatch(clearCompleted()),
 });
 
 interface IFooterProps {

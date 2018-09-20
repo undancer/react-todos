@@ -2,7 +2,7 @@ import * as React from "react";
 import TodoItem from "./TodoItem";
 import {connect} from "react-redux";
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: { todos: { editing: number } }) => ({
     editing: state.todos.editing,
 });
 

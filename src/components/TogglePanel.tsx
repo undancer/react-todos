@@ -2,13 +2,14 @@ import * as React from "react";
 import {MouseEvent} from "react";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
+import {toggleAll} from "../actions";
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: { todos: { items: [] } }) => ({
     items: state.todos.items
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    onToggleAll: (completed: boolean) => dispatch({type: 'TOGGLE_ALL', completed}),
+    onToggleAll: (completed: boolean) => dispatch(toggleAll(completed)),
 });
 
 interface ITogglePanelProps {

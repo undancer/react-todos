@@ -2,13 +2,12 @@ import * as React from "react";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
 import Input from "./Input";
+import {newTodo} from "../actions";
 
 const mapStateToProps = (state: {}) => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    addNew: (value: string) => {
-        dispatch({type: 'ADD_NEW_TODO', value})
-    }
+    addNew: (value: string) => dispatch(newTodo(value)),
 });
 
 interface ITodoTextInputProps {
