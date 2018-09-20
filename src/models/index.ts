@@ -1,3 +1,3 @@
-import ITodo from "./Todo";
+import ITodo from "./ITodo";
 
 export {ITodo}
