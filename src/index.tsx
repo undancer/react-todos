@@ -10,9 +10,6 @@ import {Provider} from "react-redux";
 import store from "./stores";
 import {BrowserRouter as Router} from "react-router-dom";
 import TodoApp from "./components/todomvc/TodoApp";
-import Header from "./components/todomvc/Header";
-import MainSection from "./components/todomvc/MainSection";
-import Footer from "./components/todomvc/Footer";
 
 ReactDOM.render(
     (
@@ -20,11 +17,7 @@ ReactDOM.render(
             <Router>
                 <div>
                     <div>
-                        <TodoApp>
-                            <Header/>
-                            <MainSection/>
-                            <Footer/>
-                        </TodoApp>
+                        <TodoApp/>
                     </div>
                     <App/>
                 </div>

@@ -42,6 +42,14 @@ const todoReducer: Reducer = (state: TodoState = initialState, action: any) => {
             const updatedList = deleteItem(state.items, action.id);
             return {...state, items: updatedList}
         }
+        case 'TOGGLE_ALL': {
+            const updatedList = state.items.map((item: any) => ({...item, completed: true}));
+            return {...state, items: updatedList}
+        }
+        case 'CLEAR_COMPLETED': {
+            const updatedList = state.items.filter((item: any) => item.completed === false);
+            return {...state, items: updatedList};
+        }
         default:
             return state;
     }

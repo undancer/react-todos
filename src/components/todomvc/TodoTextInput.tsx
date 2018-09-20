@@ -8,8 +8,6 @@ const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     addNew: (value: string) => {
-        console.log("mapDispatchToProps - addNew");
-        console.log(value);
         dispatch({type: 'ADD_NEW_TODO', value})
     }
 });
@@ -39,7 +37,6 @@ class TodoTextInput extends React.Component<ITodoTextInputProps, ITodoTextInputS
 
     handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.keyCode === KEY_RETURN) {
-            console.log("handleKeyUp");
             const {value} = this.state;
             const {addNew} = this.props;
             addNew(value);
