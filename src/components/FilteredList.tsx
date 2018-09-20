@@ -1,6 +1,6 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import {applyFilter} from "../../utils/fitler";
+import {applyFilter} from "../utils/fitler";
 import TodoList from "./TodoList";
 
 const mapStateToProps = (state: { todos: { items: [] } }) => ({
