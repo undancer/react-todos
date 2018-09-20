@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
 interface ITodoItemProps {
     id: number;
-    value: string;
+    title: string;
     completed: boolean;
     changeStatus: (id: number, completed: boolean) => void;
     editing: boolean,
@@ -37,7 +37,7 @@ interface ITodoItemProps {
 }
 
 interface ITodoItemState {
-    value: string;
+    editValue: string;
 }
 
 class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
@@ -45,7 +45,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     constructor(props: ITodoItemProps) {
         super(props);
         this.state = {
-            value: this.props.value
+            editValue: this.props.title
         }
     }
 
@@ -55,10 +55,10 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     };
 
     handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-        const value = this.state.value;
+        const editValue = this.state.editValue;
         const {id, onSave, onDestroy} = this.props;
-        if (value) {
-            onSave(id, value);
+        if (editValue) {
+            onSave(id, editValue);
         } else {
             onDestroy(id);
         }
@@ -66,20 +66,20 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
 
     handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {value} = event.target;
-        this.setState({value});
+        this.setState({editValue: value});
     };
 
     handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
         switch (event.keyCode) {
             case KEY_RETURN: {
-                const {value} = this.state;
+                const {editValue} = this.state;
                 const {id, onSave} = this.props;
-                onSave(id, value);
+                onSave(id, editValue);
             }
                 break;
             case KEY_ESCAPE: {
-                const {id, value, onCancel} = this.props;
-                this.setState({value});
+                const {id, title, onCancel} = this.props;
+                this.setState({editValue: title});
                 onCancel(id);
             }
                 break;
@@ -98,19 +98,20 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     };
 
     render() {
-        const {editing, value, completed} = this.props;
+        const {editing, title, completed} = this.props;
+        const {editValue} = this.state;
         return (
             <li className={classNames({completed, editing})}>
                 <div className="view">
                     <input className="toggle" type="checkbox" checked={completed}
                            onChange={this.handleToggle}
                     />
-                    <label onDoubleClick={this.handleDoubleClick}>{value}</label>
+                    <label onDoubleClick={this.handleDoubleClick}>{title}</label>
                     <button className="destroy"
                             onClick={this.handleClick}
                     ></button>
                 </div>
-                <input className="edit" value={this.state.value}
+                <input className="edit" value={editValue}
                        onBlur={this.handleBlur}
                        onChange={this.handleChange}
                        onKeyUp={this.handleKeyUp}

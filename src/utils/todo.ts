@@ -1,20 +1,21 @@
 import update from "immutability-helper";
+import ITodo from "../models/ITodo";
 
 const getAll = () => {
     return [
         {
             id: 1,
-            text: 'Learn Javascript',
+            title: 'Learn Javascript',
             completed: false
         },
         {
             id: 2,
-            text: 'Learn React',
+            title: 'Learn React',
             completed: false
         },
         {
             id: 3,
-            text: 'Build a React App',
+            title: 'Build a React App',
             completed: false
         }
     ]
@@ -25,7 +26,7 @@ const getNextId = () => {
     return getAll().length + todoCounter++;
 };
 
-const addToList = (list: any, data: any) => {
+const addToList = (list: ITodo[], data: any) => {
     let item = Object.assign({id: getNextId()}, data);
     return list.concat([item]);
 
@@ -36,9 +37,9 @@ const addToList = (list: any, data: any) => {
 //     return getAll().find(item => item.id === itemId);
 // };
 
-const updateStatus = (items: any, itemId: number, completed: boolean) => {
+const updateStatus = (items: ITodo[], itemId: number, completed: boolean) => {
 
-    let index = items.findIndex((item: any) => item.id === itemId);
+    let index = items.findIndex((item: ITodo) => item.id === itemId);
 
     return update(items, {
         [index]: {
@@ -50,13 +51,13 @@ const updateStatus = (items: any, itemId: number, completed: boolean) => {
 
 };
 
-const updateText = (items: any, itemId: number, text: string) => {
-    let index = items.findIndex((item: any) => item.id === itemId);
+const updateText = (items: ITodo[], itemId: number, title: string) => {
+    let index = items.findIndex((item: ITodo) => item.id === itemId);
 
     return update(items, {
         [index]: {
-            text: {
-                $set: text
+            title: {
+                $set: title
             }
         }
     })

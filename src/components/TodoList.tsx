@@ -1,6 +1,7 @@
 import * as React from "react";
 import TodoItem from "./TodoItem";
 import {connect} from "react-redux";
+import ITodo from "../models/ITodo";
 
 const mapStateToProps = (state: { todos: { editing: number } }) => ({
     editing: state.todos.editing,
@@ -10,7 +11,7 @@ const mapStateToProps = (state: { todos: { editing: number } }) => ({
 
 interface ITodoListProps {
     editing: number,
-    list: [],
+    list: ITodo[],
 }
 
 class TodoList extends React.Component<ITodoListProps> {
@@ -19,10 +20,10 @@ class TodoList extends React.Component<ITodoListProps> {
         return (
             <ul className="todo-list">
                 {
-                    list.map((item: { id: number, text: string, completed: boolean }) => (
+                    list.map((item: ITodo) => (
                         <TodoItem key={item.id}
                                   id={item.id}
-                                  value={item.text}
+                                  title={item.title}
                                   editing={editing === item.id}
                                   completed={item.completed}
                         />

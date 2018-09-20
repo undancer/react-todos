@@ -27,7 +27,7 @@ const initialState = {
 const todoReducer: Reducer = (state: TodoState = initialState, action: any) => {
     switch (action.type) {
         case TYPE_ADD_NEW_TODO: {
-            const updatedList = addToList(state.items, {text: action.value, completed: false});
+            const updatedList = addToList(state.items, {title: action.value, completed: false});
             return {...state, items: updatedList};
         }
         // case TYPE_CHANGE_MODE:

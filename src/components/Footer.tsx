@@ -5,8 +5,9 @@ import {Dispatch} from "redux";
 import {connect} from "react-redux";
 import {RouteComponentProps, withRouter} from "react-router";
 import {clearCompleted} from "../actions";
+import ITodo from "../models/ITodo";
 
-const mapStateToProps = (state: { todos: { items: [] } }) => ({
+const mapStateToProps = (state: { todos: { items: ITodo[] } }) => ({
     items: state.todos.items,
 });
 
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 interface IFooterProps {
-    items: [],
+    items: ITodo[],
     onClearCompleted: () => void;
 }
 
