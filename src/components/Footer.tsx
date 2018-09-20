@@ -3,7 +3,7 @@ import {MouseEvent} from "react";
 import Filter from "./Filter";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
-import {withRouter} from "react-router";
+import {RouteComponentProps, withRouter} from "react-router";
 
 const mapStateToProps = (state: any) => ({
     items: state.todos.items,
@@ -20,7 +20,7 @@ interface IFooterProps {
     onClearCompleted: () => void;
 }
 
-class Footer extends React.Component<IFooterProps> {
+class Footer extends React.Component<IFooterProps & RouteComponentProps> {
 
     handleClick = (event: MouseEvent<HTMLButtonElement>) => {
         const {onClearCompleted} = this.props;
@@ -44,4 +44,4 @@ class Footer extends React.Component<IFooterProps> {
     }
 }
 
-export default withRouter<any>(connect(mapStateToProps, mapDispatchToProps)(Footer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));

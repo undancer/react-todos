@@ -1,13 +1,13 @@
 import * as React from "react";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
-import {NavLink, withRouter} from "react-router-dom";
+import {NavLink, RouteComponentProps, withRouter} from "react-router-dom";
 
 const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({});
 
-class Filter extends React.Component {
+class Filter extends React.Component<RouteComponentProps> {
     render() {
         return (
             <ul className="filters">
@@ -40,4 +40,4 @@ class Filter extends React.Component {
     }
 }
 
-export default withRouter<any>(connect(mapStateToProps, mapDispatchToProps)(Filter));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Filter));
